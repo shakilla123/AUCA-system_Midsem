@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif; /* Setting default font family */
+            margin: 0; /* Removing default margins */
+            padding: 0; /* Removing default padding */
+            display: flex; /* Using flexbox for centering content vertically */
+            justify-content: center; /* Horizontally centering content */
+            align-items: center; /* Vertically centering content */
+            height: 100vh; /* Setting full viewport height */
+        }
+
+        /* Container styles */
+        .container {
+            background-color: transparent; /* Removing blue background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            overflow: hidden; /* Ensure content inside the container doesn't overflow */
+        }
+
+        /* Logo styles */
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: auto;
+            z-index: 2;
+        }
+
+        /* Picture styles */
+        .picture {
+            flex-shrink: 0; /* Prevent picture from shrinking */
+            width: auto;
+            max-height: 400px; /* Adjust the maximum height of the image */
+            object-fit: cover; /* Ensuring the picture fits in its container */
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 5px;
+            z-index: 1;
+        }
+
+        /* Access card styles */
+        .access-card {
+            flex: 1;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Form title styles */
+        #form-title {
+            font-size: 24px;
+            margin-bottom: 20px; /* Adding margin bottom */
+            color: #333; /* Setting text color */
+        }
+
+        /* Form styles */
+        .sign-form {
+            display: flex; /* Using flexbox for layout */
+            flex-direction: column; /* Setting flex direction to column */
+        }
+
+        /* Form element styles */
+        .form-element {
+            margin-bottom: 15px; /* Adding margin bottom */
+        }
+
+        .form-element label {
+            font-size: 16px; /* Setting font size */
+            margin-bottom: 5px; /* Adding margin bottom */
+            color: #666; /* Setting text color */
+        }
+
+        .form-element input,
+        .form-element select {
+            padding: 10px; /* Adding padding */
+            border: 1px solid #ccc; /* Setting border */
+            border-radius: 5px; /* Adding border radius */
+            font-size: 16px; /* Setting font size */
+        }
+
+        /* Submit button styles */
+        .form-element input[type="submit"] {
+            background-color: #007bff; /* Setting background color to blue */
+            color: #fff; /* Setting text color */
+            border: none; /* Removing border */
+            cursor: pointer; /* Adding pointer cursor */
+        }
+
+        .form-element input[type="submit"]:hover {
+            background-color: #0056b3; /* Changing background color on hover */
+        }
+
+        /* Sign-in link styles */
+        #signin-link {
+            font-size: 14px; /* Setting font size */
+            margin-top: 10px; /* Adding margin top */
+            text-align: center; /* Centering text */
+            color: #666; /* Setting text color */
+            text-decoration: none; /* Removing default underline */
+        }
+
+        #signin-link .highlighted {
+            color: #007bff; /* Setting text color for highlighted text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./src/main/webapp/images/logo.png" alt="Logo" class="logo">
+        <div class="access-card">
+            <h1 id="form-title">  AucaRegistration form</h1>
+            <form action="register" method="post" class="sign-form">
+                <p id="error"></p>
+                <div class="form-element signup">
+                    <label for="s-email">Email</label>
+                    <input type="email" id="s-email" name="s-email">
+                </div>
+                <div class="form-element signup">
+                    <label for="password">Password</label>
+                    <input type="password" id="s-password" name="s-password">
+                </div>
+                <div class="form-element signup">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" id="cpassword" name="cpassword">
+                </div>
+                <select class="form-element signup" name="role" id="role">
+                    <option disabled selected>Select your role</option>
+                    <option value="ADMIN">Admin</option>
+                    <option value="TEACHER">Teacher</option>
+                    <option value="STUDENT">Student</option>
+                </select>
+                <input id="sign-up" class="sign-up-btn" type="submit" value="Sign up">
+                <a id="signin-link" href="./Login.html">Already have an account?<span class="highlighted"> sign
+                        in</span>
+                </a>
+            </form>
+        </div>
+        <img src="src/main/webapp/images/download.jpg" alt="Picture" class="picture">
+    </div>
+</body>
+
+</html>
