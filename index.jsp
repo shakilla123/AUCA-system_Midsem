@@ -1316,6 +1316,7 @@
                                  <% if("STUDENT".equals(user.getRole())) { %> 
                              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9826"><a href="StudentDashboard.jsp">Student Dashboard</a></li>
                                <% } %>
+                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9826"><a href="logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>
