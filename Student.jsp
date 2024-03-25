@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="Model.Student" %>
+<%@ page import="Dao.StudentDao" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +86,7 @@
 
 <form action="student" method="post">
     <input type="hidden" name="action" value="${empty student ? 'create' : 'update'}">
-    <input type="hidden" name="id" value="${empty student ? '' : student.id}">
+    <input type="hidden" name="studid" value="${empty student ? '' : student.studid}">
     
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" value="${empty student ? '' : student.firstName}" required><br><br>
@@ -101,15 +103,17 @@
 <table>
     <thead>
         <tr>
+            <th>Student ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Date of Birth</th>
-            <th>Actions</th> <!-- New column for actions -->
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <c:forEach var="student" items="${students}">
             <tr>
+                <td>${student.studid}</td>
                 <td>${student.firstName}</td>
                 <td>${student.lastName}</td>
                 <td>${student.dob}</td>
@@ -117,6 +121,12 @@
                     <form action="student" method="post">
                         <input type="hidden" name="action" value="update">
                         <input type="hidden" name="studid" value="${student.studid}">
+                     
+                        <input type="text" id="updateFirstName" name="firstName" value="${student.firstName}">
+                       
+                        <input type="text" id="updateLastName" name="lastName" value="${student.lastName}">
+                       
+                        <input type="date" id="updateDob" name="dob" value="${student.dob}">
                         <button type="submit">Update</button>
                     </form>
                     <form action="student" method="post">
